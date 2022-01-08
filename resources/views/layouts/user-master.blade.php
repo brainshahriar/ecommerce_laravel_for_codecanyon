@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/images/favicon.png">
     <title>Materialart Admin Template</title>
     <!-- chartist CSS -->
     <link href="{{ asset('backend') }}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -139,7 +139,7 @@
                                         <!-- Message -->
                                         <a href="#">
                                                 <span class="user-img">
-                                                    <img src="../../assets/images/users/1.jpg" alt="user" class="circle">
+                                                    <img src="{{ asset('backend') }}/images/users/1.jpg" alt="user" class="circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                                 <span class="mail-contnet">
@@ -175,7 +175,7 @@
                                         <!-- Message -->
                                         <a href="#">
                                                 <span class="user-img">
-                                                    <img src="../../assets/images/users/4.jpg" alt="user" class="circle">
+                                                    <img src="{{ asset('backend') }}/images/users/4.jpg" alt="user" class="circle">
                                                     <span class="profile-status offline pull-right"></span>
                                                 </span>
                                                 <span class="mail-contnet">
@@ -228,11 +228,11 @@
                         <!-- ============================================================== -->
                         <!-- Profile icon scss in header.scss -->
                         <!-- ============================================================== -->
-                        <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="../../assets/images/users/2.jpg" alt="user" class="circle profile-pic"></a>
+                        <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="{{ asset('backend') }}/images/users/2.jpg" alt="user" class="circle profile-pic"></a>
                             <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
-                                        <div class="u-img"><img src="../../assets/images/users/2.jpg" alt="user"></div>
+                                        <div class="u-img"><img src="{{ asset('backend') }}/images/users/2.jpg" alt="user"></div>
                                         <div class="u-text">
                                             <h4>Steve Harvey</h4>
                                             <p>steve@gmail.com</p>
@@ -903,7 +903,7 @@
                                     <div class="message-widget message-scroll">
                                         <!-- Message -->
                                         <a href="javascript:void(0)">
-                                            <div class="user-img"> <img src="../../assets/images/users/d1.jpg" alt="user" class="circle"> <span class="profile-status online pull-right"></span> </div>
+                                            <div class="user-img"> <img src="{{ asset('backend') }}/images/users/d1.jpg" alt="user" class="circle"> <span class="profile-status online pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been.</span> <span class="time">9:30 AM</span> </div>
                                         </a>
@@ -1014,7 +1014,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-flex no-block align-items-center">
-                                                        <div class="m-r-10"><img src="../../assets/images/users/d1.jpg" alt="user" class="circle" width="45" /></div>
+                                                        <div class="m-r-10"><img src="{{ asset('backend') }}/images/users/d1.jpg" alt="user" class="circle" width="45" /></div>
                                                         <div class="">
                                                             <h5 class="m-b-0 font-16 font-medium">Hanna Gover</h5><span>hgover@gmail.com</span></div>
                                                     </div>

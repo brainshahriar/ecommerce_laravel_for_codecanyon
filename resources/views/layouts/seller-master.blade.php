@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/images/favicon.png">
     <title>Materialart Admin Template</title>
     <!-- chartist CSS -->
     <link href="{{ asset('backend') }}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
@@ -139,7 +139,7 @@
                                         <!-- Message -->
                                         <a href="#">
                                                 <span class="user-img">
-                                                    <img src="../../assets/images/users/1.jpg" alt="user" class="circle">
+                                                    <img src="{{ asset('backend') }}/images/users/1.jpg" alt="user" class="circle">
                                                     <span class="profile-status online pull-right"></span>
                                                 </span>
                                                 <span class="mail-contnet">
@@ -228,7 +228,7 @@
                         <!-- ============================================================== -->
                         <!-- Profile icon scss in header.scss -->
                         <!-- ============================================================== -->
-                        <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="../../assets/images/users/2.jpg" alt="user" class="circle profile-pic"></a>
+                        <li><a class="dropdown-trigger" href="javascript: void(0);" data-target="user_dropdown"><img src="{{ asset('backend') }}/images/users/2.jpg" alt="user" class="circle profile-pic"></a>
                             <ul id="user_dropdown" class="mailbox dropdown-content dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
