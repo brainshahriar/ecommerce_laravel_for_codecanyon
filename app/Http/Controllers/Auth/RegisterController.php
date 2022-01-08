@@ -30,6 +30,20 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo(){
+        if (Auth()->user()->role_id ==1 ) {
+            return route('admin.dashboard');
+
+        }elseif (Auth()->user()->role_id ==2 ) {
+        return route('seller.dashboard');
+        }
+        elseif (Auth()->user()->role_id ==3 ) {
+            return route('user.dashboard');
+            }
+            elseif (Auth()->user()->role_id ==4 ) {
+                return route('alluser.dashboard');
+                }
+    }
 
     /**
      * Create a new controller instance.
@@ -66,6 +80,7 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'role_id' => 4,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
