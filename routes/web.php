@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\User\UserController;
-use App\Http\Controller\Admin\AdminController;
-use App\Http\Controller\Seller\SellerController;
-use App\Http\Controller\Alluser\AlluserController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Seller\SellerController;
+use App\Http\Controllers\Alluser\AlluserController;
 
 
 /*
