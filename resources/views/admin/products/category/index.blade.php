@@ -17,11 +17,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($category as $key=>$item)
+
                     <tr id="1" class="gradeX">
-                        <td>1</td>
-                        <td>Trident</td>
-                        <td>Trident</td>
+                        <td>{{ ++$key }}</td>
+                        <td>{{ $item->category_name }}</td>
+                        <td>
+                            <a class="waves-effect waves-light btn btn-round red">Delete</a>
+                            <a class="waves-effect waves-light btn btn-round blue">Edit</a>
+                        </td>
                     </tr>
+                                            
+                    @endforeach
                 </tbody>
             </table>
         </div>

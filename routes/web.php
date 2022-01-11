@@ -35,6 +35,8 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
     //category route
     Route::get('category',[CategoryController::class,'index'])->name('category');
+    Route::post('category/store',[CategoryController::class,'store'])->name('category-store');
+
 
 
 });
