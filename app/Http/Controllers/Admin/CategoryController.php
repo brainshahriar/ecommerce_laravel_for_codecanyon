@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
+use App\Models\Admin\Subcategory;
 
 class CategoryController extends Controller
 {
@@ -21,6 +22,47 @@ class CategoryController extends Controller
 
        $notification=array(
         'message'=>'Catetory Added Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+        //delete Category
+   public function delete($cat_id){
+    Category::findOrFail($cat_id)->delete();
+        $notification=array(
+        'message'=>'Category Delete Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+
+    //subcategory
+
+    public function indexsubcategory(){
+        $categories=Category::all();
+        $subcategory=Subcategory::all();
+        return view('admin.products.subcategory.index',compact('subcategory','categories'));
+    }
+    public function storesubcategory(Request $request){
+       Subcategory::insert([
+        'category_id' => $request->category_id,
+        'subcategory_name' => $request->subcategory_name,
+        'meta_title' => $request->meta_title,
+        'description' => $request->description,
+
+       ]);
+
+       $notification=array(
+        'message'=>'SubCatetory Added Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+        //delete Category
+   public function deletesubcategory($subcat_id){
+    Subcategory::findOrFail($subcat_id)->delete();
+        $notification=array(
+        'message'=>'SubCategory Delete Success',
         'alert-type'=>'success'
     );
     return Redirect()->back()->with($notification);
