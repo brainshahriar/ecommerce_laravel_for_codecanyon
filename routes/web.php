@@ -6,7 +6,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Alluser\AlluserController;
-
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Admin'], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
     //category route
-    Route::get('category',[CategoryController::class,'index'])->name('category');
+    Route::get('categories',[CategoryController::class,'index'])->name('category');
     Route::post('category/store',[CategoryController::class,'store'])->name('category-store');
+    Route::get('brands',[BrandController::class,'index'])->name('brand');
+    Route::get('inhouse-products',[ProductController::class,'index'])->name('inhouse-products');
 
 
 
@@ -51,4 +54,3 @@ Route::group(['prefix'=>'seller','middleware' =>['seller','auth'],'namespace'=>'
 Route::group(['prefix'=>'alluser','middleware' =>['alluser','auth'],'namespace'=>'Alluser'], function(){
     Route::get('dashboard',[AlluserController::class,'index'])->name('alluser.dashboard');
 });
-
