@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
+use App\Models\Admin\Subcategory;
+use App\Models\Admin\Subsubcategory;
 
 class CategoryController extends Controller
 {
@@ -21,6 +23,88 @@ class CategoryController extends Controller
 
        $notification=array(
         'message'=>'Catetory Added Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+        //delete Category
+   public function delete($cat_id){
+    Category::findOrFail($cat_id)->delete();
+        $notification=array(
+        'message'=>'Category Delete Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+
+    //subcategory
+
+    public function indexsubcategory(){
+        $categories=Category::all();
+        $subcategory=Subcategory::all();
+        return view('admin.products.subcategory.index',compact('subcategory','categories'));
+    }
+    public function storesubcategory(Request $request){
+       Subcategory::insert([
+        'category_id' => $request->category_id,
+        'subcategory_name' => $request->subcategory_name,
+        'meta_title' => $request->meta_title,
+        'description' => $request->description,
+
+       ]);
+
+       $notification=array(
+        'message'=>'SubCatetory Added Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+        //delete Category
+   public function deletesubcategory($subcat_id){
+    Subcategory::findOrFail($subcat_id)->delete();
+        $notification=array(
+        'message'=>'SubCategory Delete Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+
+
+    //subsubcategory
+
+
+    public function indexsubsubcategory(){
+        $categories=Category::all();
+        $subcategory=Subcategory::all();
+        $subsubcategory=Subsubcategory::all();
+        return view('admin.products.subsubcategory.index',compact('subcategory','categories','subsubcategory'));
+    }
+    //get subcategory with ajax
+    public function getSubCat($cat_id){
+        $subcat = Subcategory::where('category_id',$cat_id)->orderBy('subcategory_name','ASC')->get();
+        return json_encode($subcat);
+    }
+    public function storesubsubcategory(Request $request){
+       Subsubcategory::insert([
+        'category_id' => $request->category_id,
+        'subcategory_id' => $request->subcategory_id,
+        'subsubcategory_name' => $request->subsubcategory_name,
+        'meta_title' => $request->meta_title,
+        'description' => $request->description,
+
+       ]);
+
+       $notification=array(
+        'message'=>'SubCatetory Added Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
+//         //delete Category
+   public function deletesubsubcategory($subsubcat_id){
+    Subsubcategory::findOrFail($subsubcat_id)->delete();
+        $notification=array(
+        'message'=>'Delete Success',
         'alert-type'=>'success'
     );
     return Redirect()->back()->with($notification);
