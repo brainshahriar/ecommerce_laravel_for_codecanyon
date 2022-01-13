@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Sub Subcategory Name</th>
                         <th>Category</th>
                         <th>Sub Category</th>
                         <th>Meta Title</th>
@@ -19,21 +20,22 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                {{-- <tbody>
-                    @foreach ($subcategory as $key=>$item)
+                <tbody>
+                    @foreach ($subsubcategory as $key=>$item)
                     <tr id="1" class="gradeX">
                         <td>{{ ++$key }}</td>
+                        <td>{{ $item->subsubcategory_name }}</td>
                         <td>{{ $item->category->category_name }}</td>
-                        <td>{{ $item->subcategory_name }}</td>
+                        <td>{{ $item->subcategory->subcategory_name }}</td>
                         <td>{{ $item->meta_title }}</td>
-                        <td>{{ $item->description }}</td>
+                        <td>{{  $item->description  }}</td>
                         <td>
-                            <a href="{{ url('admin/subcategory/delete/'.$item->id) }}" id="delete" title="delete" class="waves-effect waves-light btn btn-round red">Delete</a>
+                            <a href="{{ url('admin/subsubcategory/delete/'.$item->id) }}" id="delete" title="delete" class="waves-effect waves-light btn btn-round red">Delete</a>
                             <a class="waves-effect waves-light btn btn-round blue">Edit</a>
                         </td>
                     </tr>                         
                     @endforeach
-                </tbody> --}}
+                </tbody>
             </table>
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Models\Admin\Subcategory;
+use App\Models\Admin\Subsubcategory;
 
 class CategoryController extends Controller
 {
@@ -75,7 +76,8 @@ class CategoryController extends Controller
     public function indexsubsubcategory(){
         $categories=Category::all();
         $subcategory=Subcategory::all();
-        return view('admin.products.subsubcategory.index',compact('subcategory','categories'));
+        $subsubcategory=Subsubcategory::all();
+        return view('admin.products.subsubcategory.index',compact('subcategory','categories','subsubcategory'));
     }
     //get subcategory with ajax
     public function getSubCat($cat_id){
@@ -99,12 +101,12 @@ class CategoryController extends Controller
     return Redirect()->back()->with($notification);
     }
 //         //delete Category
-//    public function deletesubsubcategory($subcat_id){
-//     Subcategory::findOrFail($subcat_id)->delete();
-//         $notification=array(
-//         'message'=>'SubCategory Delete Success',
-//         'alert-type'=>'success'
-//     );
-//     return Redirect()->back()->with($notification);
-//     }
+   public function deletesubsubcategory($subsubcat_id){
+    Subsubcategory::findOrFail($subsubcat_id)->delete();
+        $notification=array(
+        'message'=>'Delete Success',
+        'alert-type'=>'success'
+    );
+    return Redirect()->back()->with($notification);
+    }
 }
