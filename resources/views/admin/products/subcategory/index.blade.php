@@ -13,6 +13,7 @@
                     <tr>
                         <th>#</th>
                         <th>Category</th>
+                        <th>Sub Category</th>
                         <th>Meta Title</th>
                         <th>Description</th>
                         <th>Action</th>
@@ -23,6 +24,7 @@
                     <tr id="1" class="gradeX">
                         <td>{{ ++$key }}</td>
                         <td>{{ $item->category->category_name }}</td>
+                        <td>{{ $item->subcategory_name }}</td>
                         <td>{{ $item->meta_title }}</td>
                         <td>{{ $item->description }}</td>
                         <td>

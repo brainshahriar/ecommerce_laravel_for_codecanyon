@@ -5,7 +5,7 @@
         <h4>Add Category</h4>
         <div class="row">
             <div class="input-field col s12">
-                <input id="email" type="text" name="category_name" class="validate" data-validation="required">
+                <input id="email" type="text" name="subcategory_name" class="validate" data-validation="required">
                 <label for="category_name">SubCategory Name</label>
             </div>
             <div class="input-field col s12">
