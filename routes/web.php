@@ -35,11 +35,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Admin'], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
 
+
+
     //category route
     Route::get('categories',[CategoryController::class,'index'])->name('category');
     Route::post('category/store',[CategoryController::class,'store'])->name('category-store');
     Route::get('category/delete/{id}',[CategoryController::class,'delete']);
+
+    //brand
     Route::get('brands',[BrandController::class,'index'])->name('brand');
+    Route::post('brand/store',[BrandController::class,'store'])->name('brand-store');
+    Route::get('brand/delete/{id}',[BrandController::class,'destroy']);
+
 
     //subcategory route
     Route::get('subcategories',[CategoryController::class,'indexsubcategory'])->name('subcategory');
