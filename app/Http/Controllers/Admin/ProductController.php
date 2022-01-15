@@ -14,8 +14,5 @@ class ProductController extends Controller
   public function addproduct(){
     //$category=Category::all();
     return view('admin.products.inhouse_products.addproduct');
-}
-  public function storeproduct(Request $request){
-    
   }
 }

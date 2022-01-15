@@ -8,6 +8,7 @@
                  <li>
                     <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">shopping_cart</i><span class="hide-menu"> Products </span></a>
                     <div class="collapsible-body">
+
                         <ul>
                             <li><a href="{{route('brand')}}"><i class="material-icons">photo_size_select_small</i><span class="hide-menu">Brand</span></a></li>
                             <li><a href="{{ route('category') }}"><i class="material-icons">picture_in_picture</i><span class="hide-menu">Category</span></a></li>
@@ -27,10 +28,10 @@
                     <a href="#" class="collapsible-header"><i class="material-icons">shopping_basket</i><span class="hide-menu"> Inhouse Orders</span></a>
                 </li>
                 <li>
-                    <a href="#" class="collapsible-header"><i class="material-icons">shopping_basket</i><span class="hide-menu"> Pick-up Point Order</span></a>
+                    <a href="#" class="collapsible-header"><i class="material-icons">directions_bike</i><span class="hide-menu"> Pick-up Point Order</span></a>
                 </li>
                 <li>
-                    <a href="#" class="collapsible-header"><i class="material-icons">shopping_basket</i><span class="hide-menu"> Total Sales</span></a>
+                    <a href="#" class="collapsible-header"><i class="material-icons">local_mall</i><span class="hide-menu"> Total Sales</span></a>
                 </li>
                 <li>
                    <a href="javascript: void(0);" class="collapsible-header has-arrow"><i class="material-icons">supervisor_account</i><span class="hide-menu"> Sellers </span></a>

@@ -1,34 +1,43 @@
-<div id="subcategory" class="modal">
-    <form action="{{ route('subcategory-store') }}" method="POST">
-        @csrf
+<div class="modal fade" id="subcategoryAddModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-        <h4>Add Category</h4>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="email" type="text" name="subcategory_name" class="validate" data-validation="required">
-                <label for="category_name">SubCategory Name</label>
-            </div>
-            <div class="input-field col s12">
-                <label>Select Category: <span class="tx-danger">*</span></label>
-                <select class="form-control select2-show-search" data-placeholder="Select One" name="category_id" data-validation="required">
-                  <option label="Choose one"></option>
-                  @foreach ($categories as $cat)
-                  <option value="{{ $cat->id }}">{{ ucwords($cat->category_name) }}</option>
-                  @endforeach
-                </select>
-            </div>
-            <div class="input-field col s12">
-                <input id="email" type="text" name="meta_title" class="validate" data-validation="required">
-                <label for="category_name">Meta Title</label>
-            </div>
-            <div class="input-field col s12">
-                <textarea id="email" type="text" name="description" class="validate" data-validation="required"></textarea>
-                <label for="category_name">Description</label>
-            </div>
-        </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Sub Category Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form class="row g-3">
+          <div class="col-12">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="mb-3 select2-sm">
+            <label class="form-label">Select Category</label>
+            <select class="single-select form-control">
+              <option value="United States">United States</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Aland Islands">Aland Islands</option>
+            </select>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Meta Title</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="4" cols="4"></textarea>
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+        </form>
     </div>
-    <div class="modal-footer">
-        <button type="submit" class="modal-action modal-close waves-effect waves-green ">Agree</button>
-    </div>
-</form>
+  </div>
 </div>
