@@ -11,4 +11,8 @@ class ProductController extends Controller
       //$category=Category::all();
       return view('admin.products.inhouse_products.index');
   }
+  public function addproduct(){
+    //$category=Category::all();
+    return view('admin.products.inhouse_products.addproduct');
+}
 }

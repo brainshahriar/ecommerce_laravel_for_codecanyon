@@ -37,10 +37,24 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     //category route
     Route::get('categories',[CategoryController::class,'index'])->name('category');
     Route::post('category/store',[CategoryController::class,'store'])->name('category-store');
+    Route::get('category/delete/{id}',[CategoryController::class,'delete']);
     Route::get('brands',[BrandController::class,'index'])->name('brand');
+  
+
+    //subcategory route
+    Route::get('subcategories',[CategoryController::class,'indexsubcategory'])->name('subcategory');
+    Route::post('subcategory/store',[CategoryController::class,'storesubcategory'])->name('subcategory-store');
+    Route::get('subcategory/delete/{id}',[CategoryController::class,'deletesubcategory']);
+
+    //subsubcategory route
+    Route::get('subsubcategories',[CategoryController::class,'indexsubsubcategory'])->name('subsubcategory');
+    Route::get('subcategory/ajax/{cat_id}',[CategoryController::class,'getSubCat']);
+    Route::post('subsubcategory/store',[CategoryController::class,'storesubsubcategory'])->name('subsubcategory-store');
+    Route::get('subsubcategory/delete/{id}',[CategoryController::class,'deletesubsubcategory']);
+
+    //inhouse products
     Route::get('inhouse-products',[ProductController::class,'index'])->name('inhouse-products');
-
-
+    Route::get('add/products',[ProductController::class,'addproduct'])->name('add-products');
 
 });
 

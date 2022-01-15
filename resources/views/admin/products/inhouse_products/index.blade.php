@@ -26,11 +26,7 @@
                 <div class="card">
 
                     <div class="card-content">
-                      <a class="waves-effect waves-light btn modal-trigger" href="#product">Add Products</a>
-
-
-
-
+                      <a class="waves-effect waves-light btn btn-round green" href="{{ route('add-products') }}">Add Products</a>
                         <table id="zero_config" class="responsive-table display" style="width:100%">
                             <thead>
                                 <tr>
