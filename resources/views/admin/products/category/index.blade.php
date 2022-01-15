@@ -40,33 +40,51 @@
 
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>CatsEye</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-              <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
-              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
+        @foreach($categories as $key => $category)
+        <tr>
+            <td>{{++$key}}</td>
+            <td>{{($category->name)}}</td>
+            <td><img loading="lazy"  class="img-md" src="{{ asset($category->banner) }}" alt="{{__('banner')}}"></td>
+            <td><img loading="lazy"  class="img-xs" src="{{ asset($category->icon) }}" alt="{{__('icon')}}"></td>
+            <td><label class="switch">
+                <input onchange="update_featured(this)" value="{{ $category->id }}" type="checkbox" <?php if($category->featured == 1) echo "checked";?> >
+                <span class="slider round"></span></label></td> 
+            <td>{{ $category->commision_rate }} %</td>
+            <td>{{ $category->cash_back }} %</td>
+            <td>{{ $category->cash_back_adjust }} %</td>
+            <td><label class="switch">
+                <input type="checkbox" <?php if($category->status == 'on') echo "checked";?> disabled >
+                <span class="slider round"></span></label></td>
 
-
-            </td>
-
-          </tr>
-
-        </tbody>
-
+              <td>
+                <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
+                <a class="btn btn-danger" href="{{ url('admin/category/delete/'.$category->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
+              </td>
+     
+        </tr>
+    @endforeach
       </table>
     </div>
   </div>
 </div>
 
-
+{{-- <script type="text/javascript">
+  function update_featured(el){
+      if(el.checked){
+          var status = 1;
+      }
+      else{
+          var status = 0;
+      }
+      $.post('{{ route('categories.featured') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+          if(data == 1){
+              showAlert('success', 'Featured categories updated successfully');
+          }
+          else{
+              showAlert('danger', 'Something went wrong');
+          }
+      });
+  }
+</script> --}}
 
 @endsection
