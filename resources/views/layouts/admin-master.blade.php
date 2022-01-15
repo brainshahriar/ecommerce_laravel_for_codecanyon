@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('backend') }}/images/favicon.png">
     <title>Materialart Admin Template</title>
     <!-- chartist CSS -->
+    
     <link href="{{ asset('backend') }}/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="{{ asset('backend') }}/dist/css/style.css" rel="stylesheet">
