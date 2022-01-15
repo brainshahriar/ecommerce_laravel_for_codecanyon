@@ -7,32 +7,29 @@
       </div>
       <div class="modal-body">
 
-        <form class="row g-3">
+        <form class="row g-3" action="{{ route('brand-store') }}" method="POST" enctype="multipart/form-data">
+          @csrf
           <div class="col-12">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control">
+            <input type="text" name="name" class="form-control" data-validation="required">
           </div>
           <div class="col-12">
-            <label class="form-label">Logo</label>
-            <input type="file" class="form-control">
+            <label class="form-label">Logo (120*80)</label>
+            <input type="file" id="logo" name="logo" class="form-control" data-validation="required">
           </div>
           <div class="col-12">
             <label class="form-label">Meta Title</label>
-            <input type="text" class="form-control">
+            <input type="text" name="meta_title" class="form-control">
           </div>
           <div class="col-12">
             <label class="form-label">Description</label>
-            <textarea class="form-control" rows="4" cols="4"></textarea>
+            <textarea name="meta_description" class="form-control" rows="4" cols="4" data-validation="required"></textarea>
           </div>
-
-
-
-
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
         </form>
     </div>
