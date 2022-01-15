@@ -39,6 +39,19 @@
             <input type="number" min="0" step="0.01" id="cash_back" name="cash_back" class="form-control" placeholder="%">
 
           </div>
+
+            {{-- @if (\App\BusinessSetting::where('type', 'category_wise_commission')->first()->value == 1)
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">{{__('Commission Rate')}}</label>
+                <div class="col-sm-8">
+                    <input type="number" min="0" step="0.01" placeholder="{{__('Commission Rate')}}" id="commision_rate" name="commision_rate" class="form-control">
+                </div>
+                <div class="col-lg-2">
+                    <option class="form-control">%</option> 
+                </div>
+            </div>
+        @endif --}}
+
           <div class="col-12">
             <label class="form-label">Adjust</label>
             <input type="number"  min="0" step="0.01"  id="cash_back_adjust" name="cash_back_adjust" class="form-control" placeholder="%">

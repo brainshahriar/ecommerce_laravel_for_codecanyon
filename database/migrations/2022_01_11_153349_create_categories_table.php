@@ -22,7 +22,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('cash_back_adjust');
             $table->string('user_package_discount');
             $table->string('slug');
-            $table->string('commision_rate');
+            $table->string('commision_rate')->nullable();
             $table->string('banner');
             $table->string('serial');
             $table->string('icon');

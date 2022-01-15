@@ -31,9 +31,9 @@ class CategoryController extends Controller
         else {
             $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->name)).'-'.Str::random(5);
         }
-        if ($request->commision_rate != null) {
-            $category->commision_rate = $request->commision_rate;
-        }
+        // if ($request->commision_rate != null) {
+        //     $category->commision_rate = $request->commision_rate;
+        // }
 
         // $data = openJSONFile('en');
         // $data[$category->name] = $category->name;
