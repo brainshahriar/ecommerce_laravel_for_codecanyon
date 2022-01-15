@@ -12,8 +12,8 @@ use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
     public function index(){
-        $category=Category::all();
-        return view('admin.products.category.index',compact('category'));
+        $categories=Category::all();
+        return view('admin.products.category.index',compact('categories'));
     }
     public function store(Request $request)
     {
@@ -61,13 +61,41 @@ class CategoryController extends Controller
         }
     }
         //delete Category
-   public function delete($cat_id){
-    Category::findOrFail($cat_id)->delete();
+   public function delete($id){
+    $category = Category::findOrFail($id);
+    // foreach ($category->subcategories as $key => $subcategory) {
+    //     foreach ($subcategory->subsubcategories as $key => $subsubcategory) {
+    //         $subsubcategory->delete();
+    //     }
+    //     $subcategory->delete();
+    // }
+
+    // Product::where('category_id', $category->id)->delete();
+    // HomeCategory::where('category_id', $category->id)->delete();
+
+    if(Category::destroy($id)){
+        // foreach (Language::all() as $key => $language) {
+        //     $data = openJSONFile($language->code);
+        //     unset($data[$category->name]);
+        //     saveJSONFile($language->code, $data);
+        // }
+
+        if($category->banner != null){
+            //($category->banner);
+        }
+        if($category->icon != null){
+            //unlink($category->icon);
+        }
         $notification=array(
-        'message'=>'Category Delete Success',
-        'alert-type'=>'success'
-    );
-    return Redirect()->back()->with($notification);
+            'message'=>'Category Delete Success',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    else{
+        flash(__('Something went wrong'))->error();
+        return back();
+    }
     }
 
     //subcategory
