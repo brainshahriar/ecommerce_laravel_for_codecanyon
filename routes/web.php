@@ -34,12 +34,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Admin'], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
+
     //category route
     Route::get('categories',[CategoryController::class,'index'])->name('category');
     Route::post('category/store',[CategoryController::class,'store'])->name('category-store');
     Route::get('category/delete/{id}',[CategoryController::class,'delete']);
     Route::get('brands',[BrandController::class,'index'])->name('brand');
-
 
     //subcategory route
     Route::get('subcategories',[CategoryController::class,'indexsubcategory'])->name('subcategory');
@@ -55,6 +55,7 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     //inhouse products
     Route::get('inhouse-products',[ProductController::class,'index'])->name('inhouse-products');
     Route::get('add/products',[ProductController::class,'addproduct'])->name('add-products');
+    Route::post('product/store',[ProductController::class,'storeproduct'])->name('product-store');
 
     //seller products
     Route::get('seller-products.pending',[ProductController::class,'SellerProductsPending'])->name('seller-products-pending');
