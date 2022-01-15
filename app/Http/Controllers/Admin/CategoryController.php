@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
 use App\Models\Admin\Subcategory;
 use App\Models\Admin\Subsubcategory;
+use Illuminate\Support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -14,18 +15,50 @@ class CategoryController extends Controller
         $category=Category::all();
         return view('admin.products.category.index',compact('category'));
     }
-    public function store(Request $request){
-       Category::insert([
-        'category_name' => $request->category_name,
-        'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+    public function store(Request $request)
+    {
+        $category = new Category;
+        $category->name = $request->name;
+        $category->meta_title = $request->meta_title;
+        $category->meta_description = $request->meta_description;
+        $category->cash_back = !empty($request->cash_back) ? $request->cash_back : 0.00;
+        $category->cash_back_adjust = !empty($request->cash_back_adjust) ? $request->cash_back_adjust : 0.00;
+        $category->user_package_discount = !empty($request->user_package_discount) ? 'on' : 'off';
+        $category->status = $request->status ? 'on' : 'off';
+        if ($request->slug != null) {
+            $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->slug));
+        }
+        else {
+            $category->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->name)).'-'.Str::random(5);
+        }
+        // if ($request->commision_rate != null) {
+        //     $category->commision_rate = $request->commision_rate;
+        // }
 
-       ]);
+        // $data = openJSONFile('en');
+        // $data[$category->name] = $category->name;
+        // saveJSONFile('en', $data);
 
-       $notification=array(
-        'message'=>'Catetory Added Success',
-        'alert-type'=>'success'
-    );
-    return Redirect()->back()->with($notification);
+        if($request->hasFile('banner')){
+            $category->banner = $request->file('banner')->store('uploads/categories/banner');
+        }
+        if($request->hasFile('icon')){
+            $category->icon = $request->file('icon')->store('uploads/categories/icon');
+        }
+        
+        $category->serial = $request->serial; 
+
+        if($category->save()){
+            $notification=array(
+                'message'=>'Category Added Success',
+                'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+        else{
+            flash(__('Something went wrong'))->error();
+            return back();
+        }
     }
         //delete Category
    public function delete($cat_id){

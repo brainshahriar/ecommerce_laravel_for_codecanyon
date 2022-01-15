@@ -34,21 +34,24 @@
 
           </tr>
         </thead>
+        @foreach ($brand as $key=>$item)
         <tbody>
+        
+              
+
           <tr>
-            <td>1</td>
-            <td>CatsEye</td>
-            <td></td>
+            <td>{{ ++$key }}</td>
+            <td>{{ $item->name }}</td>
+            <td><img loading="lazy"  class="img-md" src="{{ asset($item->logo) }}" alt="Logo"></td>
             <td>
               <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
-              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
-
-
+              <a class="btn btn-danger" href="{{ url('admin/brand/delete/'.$item->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
             </td>
 
           </tr>
-
+ 
         </tbody>
+        @endforeach
 
       </table>
     </div>
