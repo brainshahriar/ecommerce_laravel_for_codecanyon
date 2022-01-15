@@ -1,70 +1,59 @@
 @extends('layouts.admin-master')
 
-@section('admin-content')
+@section('admin_content')
+
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Brands</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"><i class="bx bx-home-alt"></i></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Brands</li>
+      </ol>
+    </nav>
+  </div>
+
+</div>
+<!--end breadcrumb-->
+<h6 class="mb-0 text-uppercase">Brands</h6>
+<hr>
+  <a href="#" data-bs-toggle="modal" data-bs-target="#brandAddModal" class="btn btn-success">Add</a>
+  @include('admin.products.brand.addbrandmodal')
+<hr/>
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Logo</th>
+            <th>Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>CatsEye</td>
+            <td></td>
+            <td>
+              <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
+              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
 
 
-    <!-- ============================================================== -->
-    <!-- Title and breadcrumb -->
-    <!-- ============================================================== -->
-    <div class="page-titles">
-        <div class="d-flex align-items-center">
-            <h5 class="font-medium m-b-0">Brand</h5>
-            <div class="custom-breadcrumb ml-auto">
-                <a href="#!" class="breadcrumb">Home</a>
-                <a href="#!" class="breadcrumb">Brand</a>
-            </div>
-        </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
     </div>
-    <!-- ============================================================== -->
-    <!-- Container fluid scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <div class="container-fluid">
-
-        <div class="row">
-
-            <div class="col s12">
-                <div class="card">
-
-                    <div class="card-content">
-                      <a class="waves-effect waves-light btn modal-trigger" href="#brand">Add Brand</a>
-                      @include('admin.products.brand.addbrandmodal')
-
-
-
-                        <table id="zero_config" class="responsive-table display" style="width:100%">
-                            <thead>
-                                <tr>
-                                  <th>SL</th>
-                                    <th>Name</th>
-                                    <th>Logo</th>
-                                    <th>Action</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>Test</td>
-                                  <td>
-                                    <img src="" alt="">
-                                  </td>
-                                  <td>
-                                    <a href="#"><i class="fas fa-edit"></i></a>
-                                      <a href="#"><i class="fas fa-trash"></i></a>
-                                  </td>
-                                </tr>
-                              </tbody>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- ============================================================== -->
-    <!-- Container fluid scss in scafholding.scss -->
-    <!-- ============================================================== -->
+  </div>
+</div>
 
 
 

@@ -1,43 +1,40 @@
-<div id="brand" class="modal">
-    <form action="#" method="POST">
-        @csrf
+<div class="modal fade" id="brandAddModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-        <h4>Add Brand</h4>
-        <form>
-            <div class="form-body">
-                <div class="divider"></div>
-                <div class="card-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Brand</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 
-                    <div class="row">
-                        <div class="col s12 m6 l6">
-                            <div class="input-field">
-                                <input id="f-name" type="text">
-                                <label for="f-name">Brand Name</label>
-                            </div>
-                        </div>
-                        <div class="col s12">
-                            <div class="file-field input-field">
-                                <div class="btn cyan">
-                                    <span>File</span>
-                                    <input type="file">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text">
-                                </div>
-                            </div>
-                        </div>
+        <form class="row g-3">
+          <div class="col-12">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Logo</label>
+            <input type="file" class="form-control">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Meta Title</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="4" cols="4"></textarea>
+          </div>
 
-                    </div>
-                    
-                </div>
 
-            </div>
 
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+        </form>
     </div>
-    <div class="modal-footer">
-      <button class="btn waves-effect waves-light cyan" type="submit">Save
-      </button>
-      <button type="close" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-    </div>
-</form>
+  </div>
 </div>
