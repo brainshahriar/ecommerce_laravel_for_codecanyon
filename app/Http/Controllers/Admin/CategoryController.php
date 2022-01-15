@@ -102,23 +102,37 @@ class CategoryController extends Controller
 
     public function indexsubcategory(){
         $categories=Category::all();
-        $subcategory=Subcategory::all();
-        return view('admin.products.subcategory.index',compact('subcategory','categories'));
+        $subcategories=Subcategory::all();
+        return view('admin.products.subcategory.index',compact('subcategories','categories'));
     }
     public function storesubcategory(Request $request){
-       Subcategory::insert([
-        'category_id' => $request->category_id,
-        'subcategory_name' => $request->subcategory_name,
-        'meta_title' => $request->meta_title,
-        'description' => $request->description,
+        $subcategory = new Subcategory;
+        $subcategory->name = $request->name;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->meta_title = $request->meta_title;
+        $subcategory->meta_description = $request->meta_description;
+        if ($request->slug != null) {
+            $subcategory->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->slug));
+        }
+        else {
+            $subcategory->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->name)).'-'.Str::random(5);
+        }
 
-       ]);
+        // $data = openJSONFile('en');
+        // $data[$subcategory->name] = $subcategory->name;
+        // saveJSONFile('en', $data);
 
-       $notification=array(
-        'message'=>'SubCatetory Added Success',
-        'alert-type'=>'success'
-    );
-    return Redirect()->back()->with($notification);
+        if($subcategory->save()){
+            $notification=array(
+                'message'=>'Added Success',
+                'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+        else{
+            flash(__('Something went wrong'))->error();
+            return back();
+        }
     }
         //delete Category
    public function deletesubcategory($subcat_id){
@@ -132,7 +146,11 @@ class CategoryController extends Controller
 
 
     //subsubcategory
-
+    public function get_subcategories_by_category(Request $request)
+    {
+        $subcategories = Subcategory::where('category_id', $request->category_id)->get();
+        return $subcategories;
+    }
 
     public function indexsubsubcategory(){
         $categories=Category::all();
@@ -146,20 +164,35 @@ class CategoryController extends Controller
         return json_encode($subcat);
     }
     public function storesubsubcategory(Request $request){
-       Subsubcategory::insert([
-        'category_id' => $request->category_id,
-        'subcategory_id' => $request->subcategory_id,
-        'subsubcategory_name' => $request->subsubcategory_name,
-        'meta_title' => $request->meta_title,
-        'description' => $request->description,
+        $subsubcategory = new Subsubcategory;
+        $subsubcategory->name = $request->name;
+        $subsubcategory->sub_category_id = $request->sub_category_id;
+        //$subsubcategory->attributes = json_encode($request->choice_attributes);
+        //$subsubcategory->brands = json_encode($request->brands);
+        $subsubcategory->meta_title = $request->meta_title;
+        $subsubcategory->meta_description = $request->meta_description;
+        if ($request->slug != null) {
+            $subsubcategory->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->slug));
+        }
+        else {
+            $subsubcategory->slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '-', $request->name)).'-'.Str::random(5);
+        }
 
-       ]);
+        // $data = openJSONFile('en');
+        // $data[$subsubcategory->name] = $subsubcategory->name;
+        // saveJSONFile('en', $data);
 
-       $notification=array(
-        'message'=>'SubCatetory Added Success',
-        'alert-type'=>'success'
-    );
-    return Redirect()->back()->with($notification);
+        if($subsubcategory->save()){
+            $notification=array(
+                'message'=>'Added Success',
+                'alert-type'=>'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+        else{
+            flash(__('Something went wrong'))->error();
+            return back();
+        }
     }
 //         //delete Category
    public function deletesubsubcategory($subsubcat_id){
