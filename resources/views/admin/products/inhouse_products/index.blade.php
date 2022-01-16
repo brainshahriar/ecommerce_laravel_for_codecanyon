@@ -18,7 +18,7 @@
 <!--end breadcrumb-->
 <h6 class="mb-0 text-uppercase">Products</h6>
 <hr>
-  <a href="#" data-bs-toggle="modal" data-bs-target="#" class="btn btn-success">Add</a>
+  <a href="{{route('add-products')}}" class="btn btn-success">Add</a>
 
 <hr/>
 <div class="card">
