@@ -7,35 +7,35 @@
       </div>
       <div class="modal-body">
 
-        <form class="row g-3">
+        <form class="row g-3" action="{{route('subcategory.store')}}" method="POST" enctype="multipart/form-data">
+          @csrf
           <div class="col-12">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control">
+            <input id="name" name="name" type="text" class="form-control">
           </div>
           <div class="mb-3 select2-sm">
             <label class="form-label">Select Category</label>
-            <select class="single-select form-control">
-              <option value="United States">United States</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="Afghanistan">Afghanistan</option>
-              <option value="Aland Islands">Aland Islands</option>
-            </select>
+            <select name="category_id" required class="form-control">
+              @foreach($categories as $category)
+                  <option value="{{$category->id}}">{{__($category->name)}}</option>
+              @endforeach
+          </select>
           </div>
 
           <div class="col-12">
             <label class="form-label">Meta Title</label>
-            <input type="text" class="form-control">
+            <input name="meta_title" type="text" class="form-control">
           </div>
           <div class="col-12">
             <label class="form-label">Description</label>
-            <textarea class="form-control" rows="4" cols="4"></textarea>
+            <textarea name="meta_description" class="form-control" rows="4" cols="4"></textarea>
           </div>
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
         </form>
     </div>
