@@ -46,15 +46,21 @@
             <td>{{($category->name)}}</td>
             <td><img loading="lazy"  class="img-md" src="{{ asset($category->banner) }}" alt="{{__('banner')}}"></td>
             <td><img loading="lazy"  class="img-xs" src="{{ asset($category->icon) }}" alt="{{__('icon')}}"></td>
-            <td><label class="switch">
-                <input onchange="update_featured(this)" value="{{ $category->id }}" type="checkbox" <?php if($category->featured == 1) echo "checked";?> >
-                <span class="slider round"></span></label></td> 
+            <td>
+                <div class="form-check form-switch">
+                  <input onchange="update_featured(this)" value="{{ $category->id }}" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?php if($category->featured == 1) echo "checked";?>>
+                  <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                </div>              
+              </td> 
             <td>{{ $category->commision_rate }} %</td>
             <td>{{ $category->cash_back }} %</td>
             <td>{{ $category->cash_back_adjust }} %</td>
-            <td><label class="switch">
-                <input type="checkbox" <?php if($category->status == 'on') echo "checked";?> disabled >
-                <span class="slider round"></span></label></td>
+            <td>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" <?php if($category->status == 'on') echo "checked";?> disabled>
+                  <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                </div> 
+              </td>
 
               <td>
                 <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>

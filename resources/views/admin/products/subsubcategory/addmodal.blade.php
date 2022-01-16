@@ -48,7 +48,7 @@
     </div>
   </div>
 </div>
-
+<script src="{{asset('backend')}}/lib/jquerysubsubcategory/jquery-2.2.4.min.js"></script>
 <script type="text/javascript">
 
   function get_subcategories_by_category(){
