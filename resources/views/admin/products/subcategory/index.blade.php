@@ -28,29 +28,26 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>Sub Category</th>
-            <th>Category</th>
-            <th>Action</th>
+            <th>{{__('Subcategory')}}</th>
+            <th>{{__('Category')}}</th>
+            <th width="10%">{{__('Action')}}</th>
 
 
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>CatsEye</td>
-            <td></td>
-
-            <td>
-              <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
-              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
-
-
-            </td>
-
-          </tr>
-
-        </tbody>
+          @foreach($subcategories as $key => $subcategory)
+              <tr>
+                  <td>{{++$key}}</td>
+                  <td>{{__($subcategory->name)}}</td>
+                  <td>{{$subcategory->category->name}}</td>
+                  <td>
+                    <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
+                    <a class="btn btn-danger" href="{{ url('admin/subcategory/delete/'.$subcategory->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
+                  </td>
+              </tr>
+          @endforeach
+      </tbody>
 
       </table>
     </div>
