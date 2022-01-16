@@ -14,7 +14,7 @@ class BrandController extends Controller
   }
   public function store(Request $request)
   {
-   
+
       $brand = new Brand;
       $brand->name = $request->name;
       $brand->meta_title = $request->meta_title;

@@ -45,8 +45,8 @@ class CategoryController extends Controller
         if($request->hasFile('icon')){
             $category->icon = $request->file('icon')->store('uploads/categories/icon');
         }
-        
-        $category->serial = $request->serial; 
+
+        $category->serial = $request->serial;
 
         if($category->save()){
             $notification=array(
