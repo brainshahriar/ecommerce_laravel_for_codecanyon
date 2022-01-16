@@ -24,7 +24,7 @@
 
           <div class="mb-3 select2-sm">
             <label class="col-sm-3 control-label" for="name">{{__('Subcategory')}}</label>
-            <div class="col-sm-9">
+            <div class="col-sm-12">
                 <select name="sub_category_id" id="sub_category_id" class="form-control demo-select2-placeholder" required>
 
                 </select>
