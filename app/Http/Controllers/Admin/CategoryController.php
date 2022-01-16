@@ -154,9 +154,9 @@ class CategoryController extends Controller
 
     public function indexsubsubcategory(){
         $categories=Category::all();
-        $subcategory=Subcategory::all();
-        $subsubcategory=Subsubcategory::all();
-        return view('admin.products.subsubcategory.index',compact('subcategory','categories','subsubcategory'));
+        $subcategories=Subcategory::all();
+        $subsubcategories=Subsubcategory::all();
+        return view('admin.products.subsubcategory.index',compact('subcategories','categories','subsubcategories'));
     }
     //get subcategory with ajax
     public function getSubCat($cat_id){
@@ -167,6 +167,7 @@ class CategoryController extends Controller
         $subsubcategory = new Subsubcategory;
         $subsubcategory->name = $request->name;
         $subsubcategory->sub_category_id = $request->sub_category_id;
+        $subsubcategory->category_id = $request->category_id;
         //$subsubcategory->attributes = json_encode($request->choice_attributes);
         //$subsubcategory->brands = json_encode($request->brands);
         $subsubcategory->meta_title = $request->meta_title;
