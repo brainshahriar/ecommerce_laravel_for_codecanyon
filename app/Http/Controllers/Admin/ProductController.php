@@ -24,5 +24,9 @@ public function SellerProducts(){
     //$category=Category::all();
     return view('admin.products.seller_products.seller_products');
 }
+public function ProductReview(){
+    //$category=Category::all();
+    return view('admin.products.product_review');
+}
 
 }
