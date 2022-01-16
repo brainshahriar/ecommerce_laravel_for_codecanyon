@@ -36,7 +36,7 @@
         </thead>
         @foreach ($brand as $key=>$item)
         <tbody>
-        
+
           <tr>
             <td>{{ ++$key }}</td>
             <td>{{ $item->name }}</td>
@@ -46,7 +46,7 @@
               <a class="btn btn-danger" href="{{ url('admin/brand/delete/'.$item->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
             </td>
           </tr>
- 
+
         </tbody>
         @endforeach
 

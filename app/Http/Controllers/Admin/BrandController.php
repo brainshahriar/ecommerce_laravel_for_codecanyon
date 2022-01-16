@@ -14,7 +14,7 @@ class BrandController extends Controller
       return view('admin.products.brand.index',compact('brand'));
   }
   public function store(Request $request)
-  {  
+  {
         $image = $request->file('logo');
         $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         Image::make($image)->resize(120,80)->save('uploads/brand/'.$name_gen);
