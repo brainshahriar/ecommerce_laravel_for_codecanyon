@@ -7,6 +7,7 @@ use App\Models\Admin\Category;
 use App\Models\Admin\Subcategory;
 use App\Models\Admin\Subsubcategory;
 use Illuminate\Support\Str;
+use Image;
 
 
 class CategoryController extends Controller
@@ -17,7 +18,19 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+
+        $banner = $request->file('banner');
+        $icon = $request->file('icon');
+        $name_gen=hexdec(uniqid()).'.'.$banner->getClientOriginalExtension();
+        $name_gen1=hexdec(uniqid()).'.'.$icon->getClientOriginalExtension();
+        Image::make($banner)->resize(200,300)->save('uploads/category/'.$name_gen);
+        Image::make($icon)->resize(32,32)->save('uploads/category/'.$name_gen1);
+        $save_url = 'uploads/category/'.$name_gen;
+        $save_url1 = 'uploads/category/'.$name_gen1;
+
         $category = new Category;
+        $category->banner = $save_url;
+        $category->icon = $save_url1;
         $category->name = $request->name;
         $category->meta_title = $request->meta_title;
         $category->meta_description = $request->meta_description;
@@ -39,12 +52,12 @@ class CategoryController extends Controller
         // $data[$category->name] = $category->name;
         // saveJSONFile('en', $data);
 
-        if($request->hasFile('banner')){
-            $category->banner = $request->file('banner')->store('uploads/categories/banner');
-        }
-        if($request->hasFile('icon')){
-            $category->icon = $request->file('icon')->store('uploads/categories/icon');
-        }
+        // if($request->hasFile('banner')){
+        //     $category->banner = $request->file('banner')->store('uploads/categories/banner');
+        // }
+        // if($request->hasFile('icon')){
+        //     $category->icon = $request->file('icon')->store('uploads/categories/icon');
+        // }
 
         $category->serial = $request->serial;
 
@@ -63,39 +76,16 @@ class CategoryController extends Controller
         //delete Category
    public function delete($id){
     $category = Category::findOrFail($id);
-    // foreach ($category->subcategories as $key => $subcategory) {
-    //     foreach ($subcategory->subsubcategories as $key => $subsubcategory) {
-    //         $subsubcategory->delete();
-    //     }
-    //     $subcategory->delete();
-    // }
-
-    // Product::where('category_id', $category->id)->delete();
-    // HomeCategory::where('category_id', $category->id)->delete();
-
-    if(Category::destroy($id)){
-        // foreach (Language::all() as $key => $language) {
-        //     $data = openJSONFile($language->code);
-        //     unset($data[$category->name]);
-        //     saveJSONFile($language->code, $data);
-        // }
-
-        if($category->banner != null){
-            //($category->banner);
-        }
-        if($category->icon != null){
-            //unlink($category->icon);
-        }
-        $notification=array(
-            'message'=>'Category Delete Success',
-            'alert-type'=>'success'
-        );
-        return Redirect()->back()->with($notification);
-    }
-    else{
-        flash(__('Something went wrong'))->error();
-        return back();
-    }
+    $banner = $category->banner;
+    $icon = $category->icon;
+    unlink($banner);
+    unlink($icon);
+    Category::findOrFail($id)->delete();
+    $notification=array(
+     'message'=>'Delete Success',
+     'alert-type'=>'success'
+ );
+ return Redirect()->back()->with($notification);
     }
 
     //subcategory

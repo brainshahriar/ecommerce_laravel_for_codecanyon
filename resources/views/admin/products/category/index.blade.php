@@ -44,7 +44,7 @@
         <tr>
             <td>{{++$key}}</td>
             <td>{{($category->name)}}</td>
-            <td><img loading="lazy"  class="img-md" src="{{ asset($category->banner) }}" alt="{{__('banner')}}"></td>
+            <td><img loading="lazy"  class="img-md" src="{{ asset($category->banner) }}" alt="{{__('banner')}}" height="30" width="40"></td>
             <td><img loading="lazy"  class="img-xs" src="{{ asset($category->icon) }}" alt="{{__('icon')}}"></td>
             <td>
                 <div class="form-check form-switch">
@@ -61,19 +61,16 @@
                   <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                 </div> 
               </td>
-
               <td>
                 <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
                 <a class="btn btn-danger" href="{{ url('admin/category/delete/'.$category->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
-              </td>
-     
+              </td>  
         </tr>
     @endforeach
       </table>
     </div>
   </div>
 </div>
-
 {{-- <script type="text/javascript">
   function update_featured(el){
       if(el.checked){
@@ -92,5 +89,4 @@
       });
   }
 </script> --}}
-
 @endsection
