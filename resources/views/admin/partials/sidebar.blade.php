@@ -40,7 +40,7 @@
         </li>
         <li> <a href="{{route('seller-products')}}"><i class="bi bi-circle"></i>Seller Products</a>
         </li>
-        <li> <a href="app-fullcalender.html"><i class="bi bi-circle"></i>Product Reveiw</a>
+        <li> <a href="{{route('product-review')}}"><i class="bi bi-circle"></i>Product Reveiw</a>
         </li>
       </ul>
     </li>
