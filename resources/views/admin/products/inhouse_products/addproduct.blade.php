@@ -43,7 +43,7 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successvideos" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-video font-18 me-1'></i>
             </div>
             <div class="tab-title">Videos</div>
           </div>
@@ -52,7 +52,7 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successmetatags" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-tag font-18 me-1'></i>
             </div>
             <div class="tab-title">Meta Tags</div>
           </div>
@@ -61,7 +61,7 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successcustomerchoice" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-like font-18 me-1'></i>
             </div>
             <div class="tab-title">Customer Choice</div>
           </div>
@@ -70,7 +70,7 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successprice" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-dollar-circle font-18 me-1'></i>
             </div>
             <div class="tab-title">Price</div>
           </div>
@@ -79,7 +79,7 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successdescription" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-file font-18 me-1'></i>
             </div>
             <div class="tab-title">Description</div>
           </div>
@@ -88,20 +88,104 @@
       <li class="nav-item" role="presentation">
         <a class="nav-link" data-bs-toggle="tab" href="#successshippinginfo" role="tab" aria-selected="false">
           <div class="d-flex align-items-center">
-            <div class="tab-icon"><i class='bx bx-microphone font-18 me-1'></i>
+            <div class="tab-icon"><i class='bx bx-cycling font-18 me-1'></i>
             </div>
             <div class="tab-title">Shipping Info</div>
           </div>
         </a>
       </li>
-      
+
     </ul>
     <div class="tab-content py-3">
       <div class="tab-pane fade show active" id="successgeneral" role="tabpanel">
-        <p>General</p>
+        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="col-6">
+            <label class="form-label">Product Name</label>
+            <input type="text" id="name" name="name" class="form-control">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Select Category</label>
+            <select name="category_id" required class="form-control">
+
+                  <option value="1">Category Name 1</option>
+                  <option value="2">Category Name 2</option>
+
+          </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Select Sub Category</label>
+            <select name="category_id" required class="form-control">
+
+                  <option value="1">Sub Category Name 1</option>
+                  <option value="2">Sub Category Name 2</option>
+
+          </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Select Sub Sub Category</label>
+            <select name="category_id" required class="form-control">
+
+                  <option value="1">Sub Sub Category Name 1</option>
+                  <option value="2">Sub Sub Category Name 2</option>
+
+          </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Select Brand</label>
+            <select name="category_id" required class="form-control">
+
+                  <option value="1">Brand 1</option>
+                  <option value="2">Brand 2</option>
+
+          </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Unit</label>
+            <input type="number" id="banner" name="banner" class="form-control">
+          </div>
+          <div class="row">
+
+          </div>
+
+
+              <div class="col-6">
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
+                <input class="form-check-input" name="status" value="1" type="checkbox" id="flexSwitchCheckChecked" checked>
+
+              </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-success" type="submit">Save</button>
+                </div>
+              </form>
       </div>
       <div class="tab-pane fade" id="successimages" role="tabpanel">
-        <p>Images</p>
+        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="col-6">
+            <label class="form-label">Main Images</label>
+            <input type="file" id="name" name="name" class="form-control">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Thumbnail Image (290x300)
+            </label>
+            <input type="file" id="name" name="name" class="form-control">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Featured (290x300)</label>
+            <input type="file" id="name" name="name" class="form-control">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Flash Deal (290x300)</label>
+            <input type="file" id="name" name="name" class="form-control">
+          </div>
+
+                <div class="col-12">
+                  <button class="btn btn-success" type="submit">Save</button>
+                </div>
+              </form>
       </div>
       <div class="tab-pane fade" id="successvideos" role="tabpanel">
         <p>Videos</p>
