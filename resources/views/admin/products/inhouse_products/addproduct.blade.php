@@ -188,22 +188,136 @@
               </form>
       </div>
       <div class="tab-pane fade" id="successvideos" role="tabpanel">
-        <p>Videos</p>
+        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+          @csrf
+
+          <div class="col-6">
+            <label class="form-label">Video Provider</label>
+            <select name="category_id" required class="form-control">
+
+                  <option value="1">Youtube</option>
+                  <option value="2">Daily Motion</option>
+                  <option value="2">Vimeo</option>
+
+          </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Video Link</label>
+            <input type="text" id="name" name="name" class="form-control">
+          </div>
+                <div class="col-12">
+                  <button class="btn btn-success" type="submit">Save</button>
+                </div>
+              </form>
       </div>
       <div class="tab-pane fade" id="successmetatags" role="tabpanel">
-        <p>Meta Tags</p>
-      </div>
+
+          <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="col-6">
+              <label class="form-label">Meta Tag</label>
+              <input type="text" class="form-control" data-role="tagsinput" value="jQuery,Script,Net">
+            </div>
+            <div class="col-6">
+              <label class="form-label">Meta Title</label>
+              <input type="text" id="name" name="name" class="form-control">
+            </div>
+
+
+            <div class="col-6">
+              <label class="form-label">Meta Image</label>
+              <input type="file" id="name" name="name" class="form-control">
+            </div>
+            <div class="col-6">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" rows="4" cols="4" name="meta_description"></textarea>
+            </div>
+                  <div class="col-12">
+                    <button class="btn btn-success" type="submit">Save</button>
+                  </div>
+                </form>
+        </div>
+
       <div class="tab-pane fade" id="successcustomerchoice" role="tabpanel">
         <p>Customer Choice</p>
       </div>
       <div class="tab-pane fade" id="successprice" role="tabpanel">
-        <p>Price</p>
+        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="col-6">
+            <label class="form-label">Seller Rate</label>
+            <input type="number" class="form-control" data-role="tagsinput" >
+          </div>
+          <div class="col-6">
+            <label class="form-label">Admin Rate</label>
+            <input type="number" class="form-control" data-role="tagsinput">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Tax</label>
+            <input type="number" class="form-control" data-role="tagsinput" placeholder="%">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Discount</label>
+            <input type="number" class="form-control" data-role="tagsinput" placeholder="%">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Seller Comission</label>
+            <input type="number" class="form-control" data-role="tagsinput" placeholder="%">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Cashback</label>
+            <input type="number" class="form-control" data-role="tagsinput" >
+          </div>
+          <div class="col-6">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control" data-role="tagsinput">
+          </div>
+
+
+                <div class="col-12">
+                  <button class="btn btn-success" type="submit">Save</button>
+                </div>
+              </form>
       </div>
       <div class="tab-pane fade" id="successdescription" role="tabpanel">
-        <p>Description</p>
+        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+          @csrf
+        <div class="col-6">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" rows="4" cols="4" name="meta_description"></textarea>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-success" type="submit">Save</button>
+        </div>
+      </form>
       </div>
       <div class="tab-pane fade" id="successshippinginfo" role="tabpanel">
-        <p>Shipping Info</p>
+
+          <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="col-6">
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckChecked">Free Shipping</label>
+              <input class="form-check-input" name="status" value="1" type="checkbox" id="flexSwitchCheckChecked" checked>
+
+            </div>
+              </div>
+              <div class="col-6">
+              <div class="form-check form-switch">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Flat Rate</label>
+                <input class="form-check-input" name="status" value="1" type="checkbox" id="flexSwitchCheckChecked" checked>
+
+              </div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Shipping Cost</label>
+                  <input type="number" class="form-control" data-role="tagsinput">
+                </div>
+          <div class="col-12">
+            <button class="btn btn-success" type="submit">Save</button>
+          </div>
+        </form>
+
       </div>
 
     </div>
