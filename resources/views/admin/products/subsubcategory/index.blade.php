@@ -37,22 +37,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>CatsEye</td>
-            <td></td>
-            <td></td>
-
-            <td>
-              <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
-              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
-
-
-            </td>
-
-          </tr>
-
-        </tbody>
+          @foreach($subsubcategories as $key => $subsubcategory)
+              <tr>
+                  <td>{{+$key}}</td>
+                  <td>{{__($subsubcategory->name)}}</td>
+                  <td>{{$subsubcategory->subcategory->name}}</td>
+                  <td>{{$subsubcategory->subcategory->category->name}}</td>
+                  <td>
+                    <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
+                    <a class="btn btn-danger" href="{{ url('admin/subsubcategory/delete/'.$subsubcategory->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
+                  </td>
+              </tr>
+          @endforeach
+      </tbody>
 
       </table>
     </div>
