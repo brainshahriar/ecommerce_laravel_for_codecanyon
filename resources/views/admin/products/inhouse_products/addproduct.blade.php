@@ -346,16 +346,5 @@
         });
 		update_sku();
 	});
-
-
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $("#summernote").summernote();
-        $('.dropdown-toggle').dropdown();
-    });
 </script>
 @endsection
