@@ -31,8 +31,6 @@
             <th>{{__('Subcategory')}}</th>
             <th>{{__('Category')}}</th>
             <th width="10%">{{__('Action')}}</th>
-
-
           </tr>
         </thead>
         <tbody>
