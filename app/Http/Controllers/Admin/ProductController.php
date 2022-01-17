@@ -15,6 +15,12 @@ class ProductController extends Controller
     //$category=Category::all();
     return view('admin.products.inhouse_products.addproduct');
   }
+
+  public function storeproduct(Request $request){
+      
+  }
+
+
   public function SellerProductsPending(){
 
     //$category=Category::all();

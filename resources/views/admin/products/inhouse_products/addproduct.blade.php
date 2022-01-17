@@ -16,8 +16,6 @@
 
 </div>
 <!--end breadcrumb-->
-
-
 <hr/>
 <div class="card">
   <div class="card-body">
@@ -96,10 +94,9 @@
       </li>
 
     </ul>
+    <form action="">
     <div class="tab-content py-3">
       <div class="tab-pane fade show active" id="successgeneral" role="tabpanel">
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-          @csrf
           <div class="col-6">
             <label class="form-label">Product Name</label>
             <input type="text" id="name" name="name" class="form-control">
@@ -156,14 +153,8 @@
 
               </div>
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-success" type="submit">Save</button>
-                </div>
-              </form>
       </div>
       <div class="tab-pane fade" id="successimages" role="tabpanel">
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-          @csrf
           <div class="col-6">
             <label class="form-label">Main Images</label>
             <input type="file" id="name" name="name" class="form-control">
@@ -181,16 +172,8 @@
             <label class="form-label">Flash Deal (290x300)</label>
             <input type="file" id="name" name="name" class="form-control">
           </div>
-
-                <div class="col-12">
-                  <button class="btn btn-success" type="submit">Save</button>
-                </div>
-              </form>
       </div>
       <div class="tab-pane fade" id="successvideos" role="tabpanel">
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-          @csrf
-
           <div class="col-6">
             <label class="form-label">Video Provider</label>
             <select name="category_id" required class="form-control">
@@ -205,15 +188,8 @@
             <label class="form-label">Video Link</label>
             <input type="text" id="name" name="name" class="form-control">
           </div>
-                <div class="col-12">
-                  <button class="btn btn-success" type="submit">Save</button>
-                </div>
-              </form>
       </div>
       <div class="tab-pane fade" id="successmetatags" role="tabpanel">
-
-          <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-            @csrf
             <div class="col-6">
               <label class="form-label">Meta Tag</label>
               <input type="text" class="form-control" data-role="tagsinput" value="jQuery,Script,Net">
@@ -232,18 +208,12 @@
               <label class="form-label">Description</label>
               <textarea class="form-control" rows="4" cols="4" name="meta_description"></textarea>
             </div>
-                  <div class="col-12">
-                    <button class="btn btn-success" type="submit">Save</button>
-                  </div>
-                </form>
         </div>
 
       <div class="tab-pane fade" id="successcustomerchoice" role="tabpanel">
         <p>Customer Choice</p>
       </div>
       <div class="tab-pane fade" id="successprice" role="tabpanel">
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-          @csrf
           <div class="col-6">
             <label class="form-label">Seller Rate</label>
             <input type="number" class="form-control" data-role="tagsinput" >
@@ -272,29 +242,14 @@
             <label class="form-label">Quantity</label>
             <input type="number" class="form-control" data-role="tagsinput">
           </div>
-
-
-                <div class="col-12">
-                  <button class="btn btn-success" type="submit">Save</button>
-                </div>
-              </form>
       </div>
       <div class="tab-pane fade" id="successdescription" role="tabpanel">
-        <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-          @csrf
         <div class="col-6">
           <label class="form-label">Description</label>
           <textarea class="form-control" rows="4" cols="4" name="meta_description"></textarea>
         </div>
-        <div class="col-12">
-          <button class="btn btn-success" type="submit">Save</button>
-        </div>
-      </form>
       </div>
       <div class="tab-pane fade" id="successshippinginfo" role="tabpanel">
-
-          <form class="row g-3" action="#" method="POST" enctype="multipart/form-data">
-            @csrf
             <div class="col-6">
             <div class="form-check form-switch">
               <label class="form-check-label" for="flexSwitchCheckChecked">Free Shipping</label>
@@ -313,14 +268,16 @@
                   <label class="form-label">Shipping Cost</label>
                   <input type="number" class="form-control" data-role="tagsinput">
                 </div>
-          <div class="col-12">
-            <button class="btn btn-success" type="submit">Save</button>
-          </div>
-        </form>
 
       </div>
 
     </div>
+    <div class="form-controll">
+     
+      <button class="btn btn-success" type="submit">Save</button>
+
+    </div>
+  </form>
   </div>
 </div>
 
