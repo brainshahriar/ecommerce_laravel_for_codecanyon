@@ -66,9 +66,11 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     Route::post('product/store',[ProductController::class,'storeproduct'])->name('product-store');
 
     //seller products
-    Route::get('seller-products.pending',[ProductController::class,'SellerProductsPending'])->name('seller-products-pending');
+    Route::get('seller-products/pending',[ProductController::class,'SellerProductsPending'])->name('seller-products-pending');
     Route::get('seller-products',[ProductController::class,'SellerProducts'])->name('seller-products');
 
+    //product review
+      Route::get('products/reviews',[ProductController::class,'ProductReview'])->name('product-review');
 });
 
 Route::group(['prefix'=>'user','middleware' =>['user','auth'],'namespace'=>'User'], function(){
