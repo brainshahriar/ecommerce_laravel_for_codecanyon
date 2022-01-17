@@ -13,7 +13,6 @@
       </ol>
     </nav>
   </div>
-
 </div>
 <!--end breadcrumb-->
 <hr/>
@@ -94,7 +93,7 @@
       </li>
 
     </ul>
-    <form action="">
+    <form action="{{ route('product-store') }}" method="POST" enctype="multipart/form-data">
     <div class="tab-content py-3">
       <div class="tab-pane fade show active" id="successgeneral" role="tabpanel">
           <div class="col-6">
@@ -103,37 +102,37 @@
           </div>
           <div class="col-6">
             <label class="form-label">Select Category</label>
-            <select name="category_id" required class="form-control">
+            <select name="category_id" data-validation="required" class="form-control">
 
-                  <option value="1">Category Name 1</option>
-                  <option value="2">Category Name 2</option>
+              @foreach($categories as $category)
+              <option value="{{$category->id}}">{{__($category->name)}}</option>
+             @endforeach
 
           </select>
           </div>
           <div class="col-6">
             <label class="form-label">Select Sub Category</label>
-            <select name="category_id" required class="form-control">
+            <select class="form-control demo-select2-placeholder" name="subcategory_id" id="subcategory_id" data-validation="required">
 
-                  <option value="1">Sub Category Name 1</option>
-                  <option value="2">Sub Category Name 2</option>
-
-          </select>
+            </select>
           </div>
           <div class="col-6">
             <label class="form-label">Select Sub Sub Category</label>
             <select name="category_id" required class="form-control">
 
-                  <option value="1">Sub Sub Category Name 1</option>
-                  <option value="2">Sub Sub Category Name 2</option>
+              <select class="form-control demo-select2-placeholder" name="subsubcategory_id" id="subsubcategory_id" required>
+
+              </select>
 
           </select>
           </div>
           <div class="col-6">
             <label class="form-label">Select Brand</label>
-            <select name="category_id" required class="form-control">
+            <select name="brand_id" required class="form-control">
 
-                  <option value="1">Brand 1</option>
-                  <option value="2">Brand 2</option>
+              @foreach($brands as $brand)
+              <option value="{{$brand->id}}">{{__($brand->name)}}</option>
+             @endforeach
 
           </select>
           </div>
@@ -211,7 +210,16 @@
         </div>
 
       <div class="tab-pane fade" id="successcustomerchoice" role="tabpanel">
-        <p>Customer Choice</p>
+        <div class="col-6">
+          <label class="form-label">Color</label>
+          <input type="text" id="name" name="color" class="form-control">
+        </div>
+
+
+        <div class="col-6">
+          <label class="form-label">Size</label>
+          <input type="text" id="name" name="size" class="form-control">
+        </div>
       </div>
       <div class="tab-pane fade" id="successprice" role="tabpanel">
           <div class="col-6">
@@ -281,6 +289,55 @@
   </div>
 </div>
 
+<script src="{{asset('backend')}}/lib/jquerysubsubcategory/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
 
 
+	function get_subcategories_by_category(){
+		var category_id = $('#category_id').val();
+		$.post('{{ route('subcategories.get_subcategories_by_category') }}',{_token:'{{ csrf_token() }}', category_id:category_id}, function(data){
+		    $('#subcategory_id').html(null);
+		    for (var i = 0; i < data.length; i++) {
+		        $('#subcategory_id').append($('<option>', {
+		            value: data[i].id,
+		            text: data[i].name
+		        }));
+		        $('.demo-select2').select2();
+		    }
+		    get_subsubcategories_by_subcategory();
+		});
+	}
+
+	function get_subsubcategories_by_subcategory(){
+		var subcategory_id = $('#subcategory_id').val();
+		$.post('{{ route('subsubcategories.get_subsubcategories_by_subcategory') }}',{_token:'{{ csrf_token() }}', subcategory_id:subcategory_id}, function(data){
+		    $('#subsubcategory_id').html(null);
+		    for (var i = 0; i < data.length; i++) {
+		        $('#subsubcategory_id').append($('<option>', {
+		            value: data[i].id,
+		            text: data[i].name
+		        }));
+		        $('.demo-select2').select2();
+		    }
+		    //get_brands_by_subsubcategory();
+			//get_attributes_by_subsubcategory();
+		});
+	}
+
+	$('#category_id').on('change', function() {
+	    get_subcategories_by_category();
+	});
+
+	$('#subcategory_id').on('change', function() {
+	    get_subsubcategories_by_subcategory();
+	});
+
+	$('#subsubcategory_id').on('change', function() {
+	    // get_brands_by_subsubcategory();
+		//get_attributes_by_subsubcategory();
+	});
+
+
+
+</script>
 @endsection
