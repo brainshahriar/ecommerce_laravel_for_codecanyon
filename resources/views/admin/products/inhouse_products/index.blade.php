@@ -29,49 +29,22 @@
           <tr>
             <th>#</th>
             <th>Name</th>
-            <th>Code</th>
-            <th>Num of Sale</th>
-            <th>Total Stock</th>
-            <th>Base Price</th>
-            <th>Todays Deal</th>
-            <th>Rating</th>
-            <th>Published</th>
-            <th>Featured</th>
             <th>Action</th>
 
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>CatsEye</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td> <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-            </div></td>
-            <td></td>
-            <td><div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-            </div></td>
-            <td><div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-              <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-            </div></td>
-            <td>
-              <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
-              <a class="btn btn-danger" href="#"><i class="fadeIn animated bx bx-trash"></i></a>
-
-
-            </td>
-
-          </tr>
-
-        </tbody>
+          @foreach($products as $key => $product)
+              <tr>
+                  <td>{{++$key}}</td>
+                  <td>{{__($product->name)}}</td>
+                  <td>
+                    <a class="btn btn-primary" href="#"><i class="fadeIn animated bx bx-edit"></i></a>
+                    <a class="btn btn-danger" href="{{ url('admin/product/delete/'.$product->id) }}" id="delete" title="delete"><i class="fadeIn animated bx bx-trash"></i></a>
+                  </td>
+              </tr>
+          @endforeach
+      </tbody>
 
       </table>
     </div>
