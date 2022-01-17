@@ -22,7 +22,7 @@ class ProductController extends Controller
   }
 
   public function storeproduct(Request $request){
-
+      dd($request->all());
   }
   public function get_subsubcategories_by_subcategory(Request $request)
   {

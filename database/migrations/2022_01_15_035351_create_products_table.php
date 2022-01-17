@@ -42,7 +42,7 @@ class CreateProductsTable extends Migration
             $table->string('quantity');
             $table->text('description');
             $table->string('shipping_type');
-            $table->string('flat_shipping_cost');  
+            $table->string('flat_shipping_cost')->nullable();  
             $table->timestamps();
         });
     }

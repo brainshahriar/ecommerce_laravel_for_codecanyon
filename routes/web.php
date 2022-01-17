@@ -63,7 +63,7 @@ Route::group(['prefix'=>'admin','middleware' =>['admin','auth'],'namespace'=>'Ad
     //inhouse products
     Route::get('inhouse-products',[ProductController::class,'index'])->name('inhouse-products');
     Route::get('add/products',[ProductController::class,'addproduct'])->name('add-products');
-    Route::post('product/store',[ProductController::class,'storeproduct'])->name('product-store');
+    Route::post('product/store',[ProductController::class,'storeproduct'])->name('product.store');
     Route::post('/subsubcategories/get_subsubcategories_by_subcategory',[ProductController::class,'get_subsubcategories_by_subcategory'])->name('subsubcategories.get_subsubcategories_by_subcategory');
 
 
