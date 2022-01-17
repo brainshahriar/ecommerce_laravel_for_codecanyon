@@ -2,6 +2,13 @@
 
 @section('admin_content')
 
+
+<!-- Summernote CSS - CDN Link -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<!-- //Summernote CSS - CDN Link -->
+
+
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
   <div class="breadcrumb-title pe-3">Products Information</div>
   <div class="ps-3">
@@ -117,12 +124,11 @@
 
             </select>
           </div>
-          <div class="form-group" id="subsubcategory">
-            <label class="col-lg-2 control-label">{{__('Sub Subcategory')}}</label>
-            <div class="col-lg-7">
+          <div class="col-6 select2-sm" id="subsubcategory">
+            <label class="form-label">Select Sub Sub Category</label>
               <select class="form-control demo-select2-placeholder" name="subsubcategory_id" id="subsubcategory_id" data-validation="required">
               </select>
-            </div>
+       
           </div>
           <div class="col-6">
             <label class="form-label">Select Brand</label>
@@ -136,7 +142,7 @@
           </div>
           <div class="col-6">
             <label class="form-label">Unit</label>
-            <input type="unit" data-validation="required" id="banner" name="banner" class="form-control">
+            <input type="unit" data-validation="required" id="banner" name="unit" class="form-control">
           </div>
           <div class="row">
 
@@ -146,7 +152,7 @@
               <div class="col-6">
               <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Approved</label>
-                <input class="form-check-input" name="approved" data-validation="required" value="1" type="checkbox" id="flexSwitchCheckChecked" checked>
+                <input class="form-check-input" name="approved" value="1" type="checkbox" id="flexSwitchCheckChecked" checked>
               </div>
                 </div>
       </div>
@@ -202,7 +208,7 @@
             </div>
             <div class="col-6">
               <label class="form-label">Description</label>
-              <textarea class="form-control" rows="4" cols="4" name="meta_description" data-validation="required"></textarea>
+              <textarea class="form-control" id="summernote" rows="4" cols="4" name="meta_description" data-validation="required"></textarea>
             </div>
         </div>
 
@@ -286,11 +292,8 @@
   </div>
 </div>
 
-<script src="{{asset('backend')}}/lib/jquerysubsubcategory/jquery-2.2.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
 <script type="text/javascript">
-
-
-
 
 	function get_subcategories_by_category(){
 		var category_id = $('#category_id').val();
@@ -347,4 +350,12 @@
 
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#summernote").summernote();
+        $('.dropdown-toggle').dropdown();
+    });
+</script>
 @endsection
